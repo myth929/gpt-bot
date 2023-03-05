@@ -1,6 +1,6 @@
 import { WechatyBuilder, ScanStatus, log } from 'wechaty'
 import qrTerminal from 'qrcode-terminal'
-import { defaultMessage, shardingMessage } from './sendMessage.js'
+import { defaultMessage } from './sendMessage.js'
 // 扫码
 function onScan(qrcode, status) {
   if (status === ScanStatus.Waiting || status === ScanStatus.Timeout) {
@@ -35,8 +35,6 @@ function onLogout(user) {
 async function onMessage(msg) {
   // 默认消息回复
   await defaultMessage(msg, bot)
-  // 消息分片
-  // await shardingMessage(msg,bot)
 }
 
 // 初始化机器人
